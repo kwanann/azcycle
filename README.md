@@ -5,21 +5,21 @@ Cycle Server on Azure scripts and templates
 
 * Clone the repo 
 
-    git clone https://github.com/xpillons/azcycle.git
+        git clone https://github.com/xpillons/azcycle.git
 
 * Update vnet-params.json and vms-params.json files with your values
 
 * Create a resource group
 
-    az group create --name "my-group" --location "West Europe"
+        az group create --name "my-group" --location "West Europe"
 
 * Build the Virtual Network and subnets. By default the vnet is named **cyclevnet** . Update the **{githubuser}** value with your github user name
 
-    az group deployment create --name "vnet_deployment" --resource-group "my-group" --template-uri https://raw.githubusercontent.com/{githubuser}/azcycle/master/deploy-vnet.json --parameters vnet-params.json
+        az group deployment create --name "vnet_deployment" --resource-group "my-group" --template-uri https://raw.githubusercontent.com/{githubuser}/azcycle/master/deploy-vnet.json --parameters vnet-params.json
 
 * Build the VMs. Update the **{githubuser}** value with your github user name
 
-    az group deployment create --name "vnet_deployment" --resource-group "my-group" --template-uri https://raw.githubusercontent.com/{githubuser}/azcycle/master/deploy-vms.json --parameters vms-params.json
+        az group deployment create --name "vnet_deployment" --resource-group "my-group" --template-uri https://raw.githubusercontent.com/{githubuser}/azcycle/master/deploy-vms.json --parameters vms-params.json
 
 # Connecting to the Cycle Server
 
