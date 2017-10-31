@@ -39,6 +39,27 @@ $cycle_root/cycle_server start
 $cycle_root/cycle_server await_startup
 $cycle_root/cycle_server status
 
+
+# setup ssh key for cycle
+# Ensure your .ssh directory exists
+mkdir -p ~/.ssh
+
+# Generate the key pair without passphrase
+rm -f ~/.ssh/cyclecloud*
+ssh-keygen -f ~/.ssh/cyclecloud -t rsa -b 2048 -P ""
+
+# Rename the private key to have a .pem extension
+mv ~/.ssh/cyclecloud ~/.ssh/cyclecloud.pem
+
+mkdir -p $cycle_root/.ssh
+chown cycle_server:cycle_server $cycle_root/.ssh
+cp ~/.ssh/cyclecloud.pem $cycle_root/.ssh/cyclecloud.pem
+chmod 600 $cycle_root/.ssh/cyclecloud.pem
+chown cycle_server:cycle_server $cycle_root/.ssh/cyclecloud.pem
+
+ls -al $cycle_root/.ssh
+
+
 # cleanup
 popd
 rm -rf cycle_server
