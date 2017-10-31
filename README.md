@@ -1,7 +1,7 @@
 # azcycle
 Cycle Server on Azure scripts and templates
 
-# Setup
+# Create Azure Resources
 
 * Clone the repo 
 
@@ -21,21 +21,34 @@ Cycle Server on Azure scripts and templates
 
         az group deployment create --name "vnet_deployment" --resource-group "my-group" --template-uri https://raw.githubusercontent.com/{githubuser}/azcycle/master/deploy-vms.json --parameters vms-params.json
 
-# Connecting to the Cycle Server
 
+# Configure Cycle Server
+
+## Activate your Cycle License 
+To connect to the Cycle Portal, first retrieve the FQDN of the CycleServer VM from the Azure Portal, then browse to http://cycleserverfqdn/
+
+Create an admin user named **cycleadmin** 
+
+Claim your license or activate your license. Once activated, don't add a cloud provider, this will be added later from the CLI.
+
+## Setup CycleCloud CLI
 The Cycle Server is not directly accessible, you have to use the admin jumpbox to reach it.
 In the Azure portal, retrieve the full DNS name of the admin jump box. You can then SSH on it with the **cycleadmin** user and the SSH key you provided. Once on the jumbox 
 
     ssh cycleserver
- 
-To connect to the Cycle Portal, first retrieve the FQDN of the CycleServer VM from the Azure Portal, then browse to http://cycleserverfqdn/
 
-# Check installation logs
+* Initialize CycleCloud CLI
+
+create a Service Principal first or have one as explained here https://docs.cyclecomputing.com/installation-guide-v6.6.0/configuring_cloud_provider/masetup then start the initialize process 
+
+        cyclecloud initialize
+
+
+## Check installation logs
 
 The Cycle Server installation logs are located in the /var/lib/waagent/custom-script/download/0 directory.
 
-# Configuring Cycle to use Azure
+# Create your cluster
 
-This needs to be done manually by following the online documentation of Cycle from here https://docs.cyclecomputing.com/installation-guide-v6.6.0/configuring_cloud_provider/masetup
-There is no need to change the Network Security Rules and the Virtual Network, this is all done in the ARM templates provided here
+Build your cluster in Cycle by using the provided templates
 
