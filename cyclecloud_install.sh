@@ -8,15 +8,15 @@ rm -rf /tmp/cycle_dl_dir
 mkdir -p /tmp/cycle_dl_dir
 
 pushd /tmp/cycle_dl_dir
-wget $download_uri/cycle_server-all-6.6.0-linux64.tar.gz
-wget $download_uri/pogo-cli-3.6.0.linux64.tar.gz
-wget $download_uri/cyclecloud-cli-6.6.0.linux64.tar.gz
+wget $download_uri/cycle_server-all-linux64.tar.gz
+wget $download_uri/pogo-cli.linux64.tar.gz
+wget $download_uri/cyclecloud-cli.linux64.tar.gz
 
-tar xf cyclecloud-cli-6.6.0.linux64.tar.gz
+tar xf cyclecloud-cli.linux64.tar.gz
 mv cyclecloud /usr/local/bin
-tar xf pogo-cli-3.6.0.linux64.tar.gz
+tar xf pogo-cli.linux64.tar.gz
 mv pogo /usr/local/bin
-tar xf cycle_server-all-6.6.0-linux64.tar.gz
+tar xf cycle_server-all-linux64.tar.gz
 pushd cycle_server
 ./install.sh --nostart
 
