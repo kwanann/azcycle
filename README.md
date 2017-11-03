@@ -5,7 +5,7 @@ Cycle Server on Azure scripts and templates
 
 * Clone the repo 
 
-        git clone https://github.com/xpillons/azcycle.git
+        git clone https://github.com/jermth/azcycle.git
 
 * Update vnet-params.json and vms-params.json files with your values
 
