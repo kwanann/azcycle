@@ -65,11 +65,11 @@ Claim your license or activate your license. Once activated, don't add a cloud p
 The Cycle Server is not directly accessible, you have to use the admin jumpbox to reach it.
 In the Azure portal, retrieve the full DNS name of the admin jump box. You can then SSH on it with the **cycleadmin** user and the SSH key you provided. Once on the jumbox 
 
-    ssh cycleserver
+    $ ssh cycleserver
 
 * Initialize CycleCloud CLI
 
-    cyclecloud initialize
+        $ cyclecloud initialize
 
 
 ## Check installation logs
