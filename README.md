@@ -21,7 +21,7 @@ Save the output -- you'll need the appId, password and tenant id.
                 "password": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
                 "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         }
-
+```
 4. Azure subscription ID. 
 
 The easiest way to retrieve it:
