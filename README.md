@@ -25,8 +25,9 @@ Save the output -- you'll need the appId, password and tenant id.
 4. Azure subscription ID. 
 
 The easiest way to retrieve it:
+```
         $ az account list -o table
-
+```
 
 
 ## Create Azure Resources
