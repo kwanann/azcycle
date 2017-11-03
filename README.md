@@ -69,9 +69,7 @@ In the Azure portal, retrieve the full DNS name of the admin jump box. You can t
 
 * Initialize CycleCloud CLI
 
-create a Service Principal first or have one as explained here https://docs.cyclecomputing.com/installation-guide-v6.6.0/configuring_cloud_provider/masetup then start the initialize process 
-
-        cyclecloud initialize
+    cyclecloud initialize
 
 
 ## Check installation logs
