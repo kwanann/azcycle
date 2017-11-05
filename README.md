@@ -38,32 +38,50 @@ The easiest way to retrieve it:
 
 * Update vnet-params.json and vms-params.json files with your values
 
-* Create a resource group
+* Create a resource group in the region of your choice:
 
-        az group create --name "my-group" --location "West Europe"
+        az group create --name "{RESOURCE-GROUP}" --location "{REGION}"
 
 * Build the Virtual Network and subnets. By default the vnet is named **cyclevnet** . Update the **{githubuser}** value with your github user name
 
-        az group deployment create --name "vnet_deployment" --resource-group "my-group" --template-uri https://raw.githubusercontent.com/{githubuser}/azcycle/master/deploy-vnet.json --parameters vnet-params.json
+        az group deployment create --name "vnet_deployment" --resource-group "{RESOURCE-GROUP}" --template-uri https://raw.githubusercontent.com/{githubuser}/azcycle/master/deploy-vnet.json --parameters vnet-params.json
 
 * Build the VMs. Update the **{githubuser}** value with your github user name
 
-        az group deployment create --name "vnet_deployment" --resource-group "my-group" --template-uri https://raw.githubusercontent.com/{githubuser}/azcycle/master/deploy-vms.json --parameters vms-params.json
+        az group deployment create --name "vms_deployment" --resource-group "{RESOURCE-GROUP}" --template-uri https://raw.githubusercontent.com/{githubuser}/azcycle/master/deploy-vms.json --parameters vms-params.json
 
 
-## Configure Cycle Server
+## Configure CycleCloud Server through the Webserver
 
-## Activate your Cycle License 
-To connect to the CycleCloud webserver, first retrieve the FQDN of the CycleServer VM from the Azure Portal, then browse to http://cycleserverfqdn/
+* To connect to the CycleCloud webserver, first retrieve the FQDN of the CycleServer VM from the Azure Portal, then browse to https://cycleserverfqdn/. The installation uses a self-signed SSL certificate which may show up with a warning in your browser.
 
-Create an admin user named **cycleadmin** 
+** This installation comes with a temporary license. 
 
-Claim your license or activate your license. Once activated, don't add a cloud provider, this will be added later from the CLI.
+** When you first log into the CycleCloud webserver and it asks for a Cycle Computing account, ignore and click on **Next** if you do not have an account.
+![Account Setup]
+(https://docs.cyclecomputing.com/wp-content/uploads/2017/10/setup-step1.png)
+
+
+## Setting up CycleCloud with an Azure Subscription
+* Click on Clusters in the top menu bar. A notice will appear that you currently do not have a cloud provider set up.
+![Add CSP]
+(https://docs.cyclecomputing.com/wp-content/uploads/2017/10/no_accounts_found.png)
+
+* Click the link to add your subscription.
+![Configure Subscription]
+(https://docs.cyclecomputing.com/wp-content/uploads/2017/10/create_azure.png)
+
+** From the drop-down, select Microsoft Azure as the provider. Enter the Subscription ID, Tenant ID, Application ID, and Application Secret. If you do now have these, look at the **Pre-requisites** section above on instructions to retrieve these. The service principal password is the **Application Secret**. 
+
+** Add the Storage Account and Storage Container to use for storing configuration and application data for your cluster. If it does not already exist, the container will be created.
+
+** Check the “Set Default” option to make this azure subscription the default. Once you have completed setting the parameters for your Azure account, click Save to continue.
 
 
 ## Setup CycleCloud CLI
-The Cycle Server is not directly accessible, you have to use the admin jumpbox to reach it.
-In the Azure portal, retrieve the full DNS name of the admin jump box. You can then SSH on it with the **cycleadmin** user and the SSH key you provided. Once on the jumbox 
+* The CycleCloud CLI is required for importing custom cluster templates, and is installed in the **cycleserver** VM. SSH access into this VM is not directly accessible -- you have to first SSH into the admin jumpbox to reach it.
+
+* In the Azure portal, retrieve the full DNS name of the admin jump box. You can then SSH on it with the **cycleadmin** user with the SSH key you provided. Once on the jumbox
 
     $ ssh cycleserver
 
