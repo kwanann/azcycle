@@ -64,18 +64,18 @@ The easiest way to retrieve it:
 
 ## Setting up CycleCloud with an Azure Subscription
 * Click on Clusters in the top menu bar. A notice will appear that you currently do not have a cloud provider set up.
-![Add CSP]
-(https://docs.cyclecomputing.com/wp-content/uploads/2017/10/no_accounts_found.png)
+
+![Add CSP](https://docs.cyclecomputing.com/wp-content/uploads/2017/10/no_accounts_found.png)
 
 * Click the link to add your subscription.
-![Configure Subscription]
-(https://docs.cyclecomputing.com/wp-content/uploads/2017/10/create_azure.png)
 
-** From the drop-down, select Microsoft Azure as the provider. Enter the Subscription ID, Tenant ID, Application ID, and Application Secret. If you do now have these, look at the **Pre-requisites** section above on instructions to retrieve these. The service principal password is the **Application Secret**. 
+![Configure Subscription](https://docs.cyclecomputing.com/wp-content/uploads/2017/10/create_azure.png)
 
-** Add the Storage Account and Storage Container to use for storing configuration and application data for your cluster. If it does not already exist, the container will be created.
+* From the drop-down, select Microsoft Azure as the provider. Enter the Subscription ID, Tenant ID, Application ID, and Application Secret. If you do now have these, look at the **Pre-requisites** section above on instructions to retrieve these. The service principal password is the **Application Secret**. 
 
-** Check the “Set Default” option to make this azure subscription the default. Once you have completed setting the parameters for your Azure account, click Save to continue.
+* Add the Storage Account and Storage Container to use for storing configuration and application data for your cluster. If it does not already exist, the container will be created.
+
+* Check the “Set Default” option to make this azure subscription the default. Once you have completed setting the parameters for your Azure account, click Save to continue.
 
 
 ## Setup CycleCloud CLI
@@ -83,7 +83,7 @@ The easiest way to retrieve it:
 
 * In the Azure portal, retrieve the full DNS name of the admin jump box. You can then SSH on it with the **cycleadmin** user with the SSH key you provided. Once on the jumbox
 
-    $ ssh cycleserver
+        $ ssh cycleserver
 
 * Initialize CycleCloud CLI
 
