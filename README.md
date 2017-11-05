@@ -36,7 +36,10 @@ The easiest way to retrieve it:
 
         git clone https://github.com/{githubuser}/azcycle.git
 
-* Update vnet-params.json and vms-params.json files with your values
+* Edit vms-params.json:
+    * You need to update three parameters: `cycleDownloadUri`, `cycleLicenseSas`, and `rsaPublicKey`
+    * Obtain `cycleDownloadUri` and `cycleLicenseSas` from your Cycle team contact.
+    * `rsaPublicKey` is the SSH public key corresponding to the private key you will use to log into the VMs.
 
 * Create a resource group in the region of your choice:
 
