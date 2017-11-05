@@ -39,6 +39,7 @@ sed -i "s/webServerKeystorePass\=changeit/webServerKeystorePass\=$randomPW/" $cy
 
 # get a license
 curl "https://cyclecloudlicense.blob.core.windows.net/license/license.dat?$licenseBlobSas" > $cycle_root/license.dat
+chown cycle_server. $cycle_root/license.dat
 
 # Start the CycleCloud server, wait for startup to complete before exiting.
 $cycle_root/cycle_server start
