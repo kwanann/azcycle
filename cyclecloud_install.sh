@@ -4,14 +4,12 @@ yum install -y java-1.8.0-openjdk wget
 download_uri=$1
 licenseBlobSas=$2
 
-echo "License Blob = $licenseBlobSas"
-
 cycle_root=/opt/cycle_server
 
-rm -rf /tmp/cycle_dl_dir
-mkdir -p /tmp/cycle_dl_dir
+rm -rf /tmp/cycle_install_dir
+mkdir -p /tmp/cycle_install_dir
 
-pushd /tmp/cycle_dl_dir
+pushd /tmp/cycle_install_dir
 wget $download_uri/cycle_server-all-linux64.tar.gz
 wget $download_uri/pogo-cli.linux64.tar.gz
 wget $download_uri/cyclecloud-cli.linux64.tar.gz
@@ -39,13 +37,10 @@ chmod 600 $cycle_root/.keystore
 sed -i "s/webServerKeystorePass\=changeit/webServerKeystorePass\=$randomPW/" $cycle_root/config/cycle_server.properties
 
 
-set -x
 # get a license
-curl -f -L -S -o license.dat "https://cyclecloudlicense.blob.core.windows.net/license/license.dat?$licenseBlobSas" 
-cp license.dat $cycle_root/
+curl -f -L -S -o $cycle_root/license.dat "https://cyclecloudlicense.blob.core.windows.net/license/license.dat?$licenseBlobSas" 
 chown cycle_server. $cycle_root/license.dat
-ls -la $cycle_root/
-set +x
+ls -la $cycle_root/license.dat
 
 # Start the CycleCloud server, wait for startup to complete before exiting.
 $cycle_root/cycle_server start
@@ -75,6 +70,6 @@ ls -al $cycle_root/.ssh
 
 # cleanup
 popd
-# rm -rf cycle_server
+rm -rf cycle_server
 popd
-# rm -rf /tmp/cycle_dl_dir
+rm -rf /tmp/cycle_install_dir
