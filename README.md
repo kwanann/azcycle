@@ -55,9 +55,9 @@ The easiest way to retrieve it:
 
 * To connect to the CycleCloud webserver, first retrieve the FQDN of the CycleServer VM from the Azure Portal, then browse to https://cycleserverfqdn/. The installation uses a self-signed SSL certificate which may show up with a warning in your browser.
 
-** This installation comes with a temporary license. 
+* This installation comes with a temporary license. 
 
-** When you first log into the CycleCloud webserver and it asks for a Cycle Computing account, ignore and click on **Next** if you do not have an account.
+* When you first log into the CycleCloud webserver and it asks for a Cycle Computing account, ignore and click on **Next** if you do not have an account.
 
 ![Account Setup](https://docs.cyclecomputing.com/wp-content/uploads/2017/10/setup-step1.png)
 
@@ -92,9 +92,9 @@ The easiest way to retrieve it:
 
 ## Check installation logs
 
-The Cycle Server installation logs are located in the /var/lib/waagent/custom-script/download/0 directory.
+* The Cycle Server installation logs are located in the /var/lib/waagent/custom-script/download/0 directory.
 
 # Create your cluster
 
-Build your cluster in Cycle by using the provided templates
+* Build your cluster in Cycle by using the provided templates
 
