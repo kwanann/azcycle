@@ -2,6 +2,8 @@
 
 yum install -y java-1.8.0-openjdk wget
 download_uri=$1
+licenseBlobSas=$2
+
 cycle_root=/opt/cycle_server
 
 rm -rf /tmp/cycle_dl_dir
@@ -33,6 +35,10 @@ randomPW=$(strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 12 | tr -d '\n
 chown cycle_server. $cycle_root/.keystore
 chmod 600 $cycle_root/.keystore
 sed -i "s/webServerKeystorePass\=changeit/webServerKeystorePass\=$randomPW/" $cycle_root/config/cycle_server.properties
+
+
+# get a license
+curl "https://cyclecloudlicense.blob.core.windows.net/license/license.dat?$licenseBlobSas" > $cycle_root/license.dat
 
 # Start the CycleCloud server, wait for startup to complete before exiting.
 $cycle_root/cycle_server start
