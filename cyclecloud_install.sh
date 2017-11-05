@@ -4,6 +4,8 @@ yum install -y java-1.8.0-openjdk wget
 download_uri=$1
 licenseBlobSas=$2
 
+echo "License Blob = $licenseBlobSas"
+
 cycle_root=/opt/cycle_server
 
 rm -rf /tmp/cycle_dl_dir
