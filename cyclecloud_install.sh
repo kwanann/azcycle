@@ -37,9 +37,11 @@ chmod 600 $cycle_root/.keystore
 sed -i "s/webServerKeystorePass\=changeit/webServerKeystorePass\=$randomPW/" $cycle_root/config/cycle_server.properties
 
 
+set -x
 # get a license
 curl "https://cyclecloudlicense.blob.core.windows.net/license/license.dat?$licenseBlobSas" > $cycle_root/license.dat
 chown cycle_server. $cycle_root/license.dat
+set +x
 
 # Start the CycleCloud server, wait for startup to complete before exiting.
 $cycle_root/cycle_server start
