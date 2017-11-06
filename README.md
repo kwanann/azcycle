@@ -2,11 +2,9 @@
 Cycle Server on Azure scripts and templates
 
 ## Pre-requisites
-1. Valid [CycleCloud portal](http://portal.cyclecomputing.com) account
+1. [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with an Azure subscription
 
-2. [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with an Azure subscription
-
-3. [Service principal in your Azure Active Directory](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+2. [Service principal in your Azure Active Directory](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
 Essentially:
 ```
@@ -22,7 +20,7 @@ Save the output -- you'll need the appId, password and tenant id.
                 "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         }
 ```
-4. Azure subscription ID. 
+3. Azure subscription ID. 
 
 The easiest way to retrieve it:
 ```
