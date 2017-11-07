@@ -1,6 +1,21 @@
 # azcycle
 Cycle Server on Azure scripts and templates
 
+
+## Create network
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjermth%2Fazcycle%2Fmaster%2Fdeploy-vnet.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png" />
+</a>
+
+## Create cycle server
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjermth%2Fazcycle%2Fmaster%2Fdeploy-vms.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png" />
+</a>
+
+
+
+
+
 ## Pre-requisites
 1. [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) installed and configured with an Azure subscription
 
