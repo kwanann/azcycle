@@ -58,7 +58,7 @@
     "cycle_nsg_name": "cycle-nsg",
     "cycle_subnet": "cycle",
 
-    "cycleInstallScript": "[uri(deployment().properties.templateLink.uri, 'cyclecloud_install.sh')]",
+    "cycleInstallScript": ["[uri(deployment().properties.templateLink.uri, 'cyclecloud_install.sh')]"],
     "cycleInstallCommand": "[concat('bash cyclecloud_install.sh ', parameters('cycleDownloadUri'), ' \"', parameters('cycleLicenseSas'), '\"')]",
 
     "networkApiVersion": "2017-06-01",
